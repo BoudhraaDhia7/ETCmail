@@ -1,0 +1,18 @@
+{% extends 'base.html.twig' %}
+{% block title %}
+  Statistiques par personne :
+{% endblock %}
+{% block body %}
+<main class="email">
+<div class="section-title"> Statistiques d'emails lus par personne :</div>
+        <div class="compose">
+          <div class="to-section">
+            <span>Email</span>
+            <input type="email" name="to" id="to" class="to-input"  required/>
+          </div>  
+        </div>
+        <button class="form-btn mb" id="search" >Rechercher</button>
+        <div id="chart_div" style="margin-left:20px"></div>
+{% endblock %} 
+
+ 

@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <title>
+      {% block title %}
+        Welcome!
+      {% endblock %}
+    </title>
+    <link rel="icon" href="{{ asset('image/icon.png') }}" />
+    <link rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" />
+    {# Run `composer require symfony/webpack-encore-bundle` to start using Symfony UX #}
+    {% block stylesheets %}
+      {{ encore_entry_link_tags('app') }}
+    {% endblock %}
+
+    {% block javascripts %}
+      <script type="text/javascript"
+        src="https://www.gstatic.com/charts/loader.js"></script>
+      {{ encore_entry_script_tags('app') }}
+    {% endblock %}
+  </head>
+  <body>
+    <header class="header">
+      <div class="header-item">
+        <div class="logo">
+          <img src="{{ asset('image/logo.png') }}" alt="logo-icon" />
+        </div>
+        <div class="header-text-box">
+          <div class="header-text white">
+            ETC
+          </div>
+          <div class="header-text">
+            mail
+          </div>
+        </div>
+        <div class="search-input">
+          <input type="text"
+            placeholder="Rechercher dans les messages"
+            id="myInputTextField" />
+          <button class="search-btn"><i class="fa fa-search"></i></button>
+        </div>
+      </div>
+    </header>
+    <nav class="nav main-nav">
+      <div class="nav-items">
+        <a type="button" class="main-btn" href="{{ path('compose') }}">
+          Ècrire
+        </a>
+        <ul class="email-list">
+          <p class="email-text">
+            <i class="arrow"></i>
+            Email
+          </p>
+          <li class="list-item all-mail {{
+            path('index')
+              == path(
+                app.request.attributes.get('_route'),
+                app.request.attributes.get('_route_params')
+              )
+              ? 'active-item'
+              : ''
+            }}">
+            <a href="{{ path('index') }}">Tous les messages</a>
+          </li>
+
+          <li class="list-item sended-mail  {{
+            path('unseen')
+              == path(
+                app.request.attributes.get('_route'),
+                app.request.attributes.get('_route_params')
+              )
+              ? 'active-item'
+              : ''
+            }}">
+            <a href="{{ path('unseen') }}">Messages non lus</a>
+          </li>
+          <li class="list-item seen-mail  {{
+            path('seen')
+              == path(
+                app.request.attributes.get('_route'),
+                app.request.attributes.get('_route_params')
+              )
+              ? 'active-item'
+              : ''
+            }}">
+            <a href="{{ path('seen') }}">Messages lu</a>
+          </li>
+        </ul>
+      </div>
+      <div class="nav-items">
+        <ul class="email-list">
+          <p class="email-text">
+            <i class="arrow"></i>
+            Statistique
+          </p>
+
+          <li class="list-item all-mail {{
+            path('person')
+              == path(
+                app.request.attributes.get('_route'),
+                app.request.attributes.get('_route_params')
+              )
+              ? 'active-item'
+              : ''
+            }}">
+            <a href="{{ path('person') }}">Par Personne</a>
+          </li>
+
+          <li class="list-item {{
+            path('hour')
+              == path(
+                app.request.attributes.get('_route'),
+                app.request.attributes.get('_route_params')
+              )
+              ? 'active-item'
+              : ''
+            }}">
+            <a href="{{ path('hour') }}">Par Heure</a>
+          </li>
+        </ul>
+      </div>
+    </nav>
+    {% block body %}
+
+    {% endblock %}
+  </body>
+</html>

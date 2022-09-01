@@ -1,0 +1,25 @@
+{% extends 'base.html.twig' %}
+{% block title %}
+  Composer
+{% endblock %}
+{% block body %}
+<main class="email">
+  
+        <div class="compose">
+          <div class="to-section">
+            <span>À</span>
+            <input type="email" name="to" class="to-input" value="{{receiver}}" disabled/>
+          </div>
+          <input
+            type="text"
+            name="object"
+            placeholder="Object"
+            class="object-input"
+            value="{{subject}}"
+         disabled />
+          <textarea name="content" id="" cols="30" rows="10" disabled>{{content}}</textarea>
+        </div>
+
+{% endblock %} 
+
+ 

@@ -1,0 +1,25 @@
+{% extends 'base.html.twig' %}
+{% block title %}
+  Composer
+{% endblock %}
+{% block body %}
+<main class="email">
+   <form action="{{path('MailSend')}}" method="POST">
+        <div class="compose">
+          <div class="to-section">
+            <span>À</span>
+            <input type="email" name="to" class="to-input" required/>
+          </div>
+          <input
+            type="text"
+            name="object"
+            placeholder="Object"
+            class="object-input"
+          />
+          <textarea name="content" id="" cols="30" rows="10"></textarea>
+        </div>
+        <button type="submit" class="form-btn">Envoyer</button>
+    </form>  
+{% endblock %} 
+
+ 
