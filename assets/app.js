@@ -114,8 +114,8 @@ switch (window.location.pathname) {
             var table = google.visualization.arrayToDataTable(drawtable)
 
             var materialOptions = {
-              width: 1500,
-              height: 750,
+              width: 1500, //1100 for small screen
+              height: 750, //300 for small screen
               chart: {
                 title: 'Nombre des mail lu par heure',
                 subtitle: 'Basé sur les mail envoyer',
@@ -161,8 +161,8 @@ switch (window.location.pathname) {
             var table = google.visualization.arrayToDataTable(drawtable)
 
             var materialOptions = {
-              width: 1500,
-              height: 400,
+              width: 1500, //900 for small screen
+              height: 400, //300 for small screen
               chart: {
                 title: drawtable[0][0],
                 subtitle: drawtable[0][1],
