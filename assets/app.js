@@ -28,7 +28,11 @@ switch (window.location.pathname) {
           search: 'Recherche:',
           zeroRecords: 'Pas de résultats',
         },
-        ajax: window.location.protocol + '//' + window.location.host + '/',
+        ajax:
+          window.location.protocol +
+          '//' +
+          window.location.host +
+          window.location.pathname,
         columns: [
           { data: 'receiver' },
           { data: 'subject' },
@@ -41,8 +45,6 @@ switch (window.location.pathname) {
       $('#myInputTextField').keyup(function () {
         table.search($(this).val()).draw()
       })
-      let button = document.querySelector('.paginate_button')
-      button.classList.toggle('effect')
     })
     break
   case '/unseen':
@@ -57,7 +59,10 @@ switch (window.location.pathname) {
           zeroRecords: 'Pas de résultats',
         },
         ajax:
-          window.location.protocol + '//' + window.location.host + '/unseen',
+          window.location.protocol +
+          '//' +
+          window.location.host +
+          window.location.pathname,
         columns: [
           { data: 'receiver' },
           { data: 'subject' },
@@ -75,7 +80,11 @@ switch (window.location.pathname) {
   case '/seen':
     window.addEventListener('load', function () {
       var table = $('#datatable').DataTable({
-        ajax: window.location.protocol + '//' + window.location.host + '/seen',
+        ajax:
+          window.location.protocol +
+          '//' +
+          window.location.host +
+          window.location.pathname,
         language: {
           paginate: {
             previous: '<a class="mailpreview" href="#">&laquo;</a>',
@@ -102,7 +111,10 @@ switch (window.location.pathname) {
     window.addEventListener('load', function () {
       $.ajax({
         url:
-          window.location.protocol + '//' + window.location.host + '/stat/hour',
+          window.location.protocol +
+          '//' +
+          window.location.host +
+          window.location.pathname,
         success: function (data) {
           let drawtable = []
           data.data.forEach((element) => {
@@ -148,7 +160,7 @@ switch (window.location.pathname) {
           window.location.protocol +
           '//' +
           window.location.host +
-          '/stat/person',
+          window.location.pathname,
         data: document.getElementById('to').value,
         success: function (data) {
           let drawtable = []
